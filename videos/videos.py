@@ -10,17 +10,16 @@ def descargar_audio_con_yt_dlp(url: str, nombre_archivo: str = "mi_audio_descarg
             'preferredquality': '192',
         }],
         'quiet': False,
-        'noplaylist': True  # Evita descargar toda la lista si el link es de un playlist
+        'noplaylist': True
     }
 
     try:
         with yt_dlp.YoutubeDL(opciones) as ydl:
             print(f"Descargando audio de: {url}")
             ydl.download([url])
-            print(f"✅ Audio descargado como: {nombre_archivo}")
+            print(f" Audio descargado como: {nombre_archivo}")
     except Exception as e:
-        print("❌ Ocurrió un error durante la descarga:", e)
+        print(" Ocurrió un error durante la descarga:", e)
 
-# 👉 Reemplaza esta URL por la del video que quieras
 url_video = "https://youtu.be/aZwnaCxb-Xo?list=RDaZwnaCxb-Xo"
 descargar_audio_con_yt_dlp(url_video)
